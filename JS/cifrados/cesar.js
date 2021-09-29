@@ -65,8 +65,23 @@ var cesar = cesar || (function(){
 
 
 function cifrar(){
-    document.getElementById("resultado").innerHTML =
-    cesar.encode(document.getElementById("cadena").value, 3);
+    var boC = document.getElementById('cifCesar');
+    boC.addEventListener('click',vCesar);
+    function vCesar(){
+    if(document.getElementById('desp').value.lenght == 0 || document.getElementById('desp').value == 0) {
+        document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
+        event.preventDefault();
+    }if(document.getElementById('desp').value > 26){
+        document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
+        event.preventDefault();
+    }if(document.getElementById("cadena").value.lenght > 20){
+        document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menos a 20 letras.`;
+        event.preventDefault();
+    }else{
+        console.log(document.getElementById("cadena").value, document.getElementById("desp").value);
+        document.getElementById("resultado").innerHTML =
+        cesar.encode(document.getElementById("cadena").value, document.getElementById("desp").value);
+    }}
 }
 
 //funcion de descifrado
