@@ -63,6 +63,7 @@ var cesar = cesar || (function(){
 
 //funcion de cifrado
 
+
 function cifrar(){
     document.getElementById("resultado").innerHTML =
     cesar.encode(document.getElementById("cadena").value, 3);
@@ -72,5 +73,5 @@ function cifrar(){
 
 function descifrar(){
     document.getElementById("resultado").innerHTML =
-    cesar.decode(document.getElementById("cadena").value, 3);
+    cesar.decode(document.getElementById("cadena").value, 0);
 }

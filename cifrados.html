@@ -27,9 +27,15 @@
         <br>
         <p><input type="button" value="Cifrar" onclick="cifrar()" >
             <input type="button" value="Descifrar" onclick="descifrar()" ></p>
-        <div id="resultado" >
-    
+
+        <div>
+          <input type="radio" id="huey" name="drone" value="huey"
+                checked>
+          <label for="huey">Huey</label>
+          <input type="radio" id="dewey" name="drone" value="dewey">
+          <label for="dewey">Dewey</label>
         </div>
+        <div id="resultado" ></div>
     </section>
 
     <section class="viggenere">
@@ -48,7 +54,7 @@
     </section>
 
     <!-- js -->
-    <script src="js/cifrados/viggenere.js"></script>
     <script src="js/cifrados/cesar.js" ></script>
+    <script src="js/cifrados/viggenere.js"></script>
 </body>
 </html>
