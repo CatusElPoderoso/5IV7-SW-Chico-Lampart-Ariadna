@@ -10,10 +10,11 @@ const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 //llave
 let key = "";
 
-
-$(document).ready(function(){
-    $('#ci').click(function(){
-
+function ciViggenere(){
+    console.log("sí empieza a leer y luego se hace wey");
+    if(document.querySelector("input[id='rabVigge']:checked").value){
+    document.querySelector('#ci').click(function(){
+        console.log('andoleyendo')
         //para cifrar vamos a usar la funcion
         // y = (x+z)mod27 pq estamos usando la ñ
 
@@ -23,26 +24,26 @@ $(document).ready(function(){
         key = key.replace(/ /g, '');
 
         //obtener el mensaje
-        let mess = document.getElementById('mess').value;
+        let cadena = document.getElementById('cadena').value;
 
-        mess = mess.replace(/ /g, '');
+        cadena = cadena.replace(/ /g, '');
 
-        let newMess = "";
+        let newcadena = "";
 
         let keyComplete = "";
 
         //algoritmo
 
-        if(revision(mess, key)){
+        if(revision(cadena, key)){
 
-            for(var i = 0; i<mess.length; i++){
+            for(var i = 0; i<cadena.length; i++){
                 keyComplete += key.charAt((i%Number(key.length)));
             }
             alert(keyComplete);
 
-            for(var i = 0; i<mess.length; i++){
+            for(var i = 0; i<cadena.length; i++){
                 //obtener la poscion de la letra por letra del mensaje
-                let charr = mess.charAt(i);
+                let charr = cadena.charAt(i);
                 let posm = getPosition(charr);
 
                 charr = keyComplete.charAt(i);
@@ -52,17 +53,17 @@ $(document).ready(function(){
 
                 let newVal = change(posm, posk);
 
-                newMess += abc[newVal];  //mensaje cifrado
+                newcadena += abc[newVal];  //mensaje cifrado
             }
-            //imprimir el resultado
-            document.getElementById('rs').value = newMess;
+            //imprimir el rs
+            document.getElementById('rs').value = newcadena;
         }else{
             //aqui es si no se cumple las condiciones
         }
 
 
     });
-    $('#de').click(function(){
+    document.querySelector('#de').click(function(){
 
         //para cifrar vamos a usar la funcion
         // y = (x+z)mod27 pq estamos usando la ñ
@@ -73,26 +74,26 @@ $(document).ready(function(){
         key = key.replace(/ /g, '');
 
         //obtener el mensaje
-        let mess = document.getElementById('mess').value;
+        let cadena = document.getElementById('cadena').value;
 
-        mess = mess.replace(/ /g, '');
+        cadena = cadena.replace(/ /g, '');
 
-        let newMess = "";
+        let newcadena = "";
 
         let keyComplete = "";
 
         //algoritmo
 
-        if(revision(mess, key)){
+        if(revision(cadena, key)){
 
-            for(var i = 0; i<mess.length; i++){
+            for(var i = 0; i<cadena.length; i++){
                 keyComplete += key.charAt((i%Number(key.length)));
             }
             alert(keyComplete);
 
-            for(var i = 0; i<mess.length; i++){
+            for(var i = 0; i<cadena.length; i++){
                 //obtener la poscion de la letra por letra del mensaje
-                let charr = mess.charAt(i);
+                let charr = cadena.charAt(i);
                 let posm = getPosition(charr);
 
                 charr = keyComplete.charAt(i);
@@ -102,10 +103,10 @@ $(document).ready(function(){
 
                 let newVal = rechange(posm, posk);
 
-                newMess += abc[newVal];  //mensaje decifrado
+                newcadena += abc[newVal];  //mensaje decifrado
             }
-            //imprimir el resultado
-            document.getElementById('rs').value = newMess;
+            //imprimir el rs
+            document.getElementById('rs').value = newcadena;
         }else{
             //aqui es si no se cumple las condiciones
         }
@@ -113,7 +114,7 @@ $(document).ready(function(){
 
     });
 
-});
+}};
 
 //cambio
 
@@ -138,14 +139,14 @@ function getPosition(letra){
     return position;
 }
 
-function revision(mess, desp){
+function revision(cadena, desp){
     //validar la entrada de los datos
     //expresion regular
     const re = /^([a-zñ?]+([]*[a-zñ?]?['-]?[a-zñ?]+)*)$/
 
     var acc = true;
 
-    if(!re.test(mess)){
+    if(!re.test(cadena)){
         sd();
         acc = false;
     }
@@ -153,7 +154,7 @@ function revision(mess, desp){
         sdd();
         acc = false;
     }
-    if(desp.length > mess.length){
+    if(desp.length > cadena.length){
         sz();
     }
     return acc;
