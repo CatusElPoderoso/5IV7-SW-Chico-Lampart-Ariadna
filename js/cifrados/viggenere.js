@@ -5,7 +5,6 @@ const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 //llave
 let key = "";
 
-
 $(document).ready(function () {
     $('#ci').click(function () {
 
