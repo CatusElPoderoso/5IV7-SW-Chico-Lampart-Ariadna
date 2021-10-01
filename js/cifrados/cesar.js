@@ -78,7 +78,7 @@ function cifrar(){
             document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menor a 20 letras.`;
             event.preventDefault();
         }else{
-            document.getElementById("resultado").innerHTML =
+            document.getElementById("rs").innerHTML =
             cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
         }
     }else{
@@ -96,7 +96,7 @@ function descifrar(){
     }if(document.getElementById("cadena").value.length > 20){
         event.preventDefault();
     }else{
-    document.getElementById("resultado").innerHTML =
+    document.getElementById("rs").innerHTML =
     cesar.decode(document.getElementById("cadena").value, 0);
     }
 }
