@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charesultadoet="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
@@ -14,41 +14,53 @@
     <title>Cifrados</title>
 </head>
 <body>
-    <section class="cifrados">
+    <section class="cesar">
+        <h3>Cifrado César</h3>
         <!-- texto -->
         <div>
-            Ingrese lo que desea cifrar: <br>
+            Ingresa lo que quieras cifrar: <br>
             <textarea id="cadena" placeholder="hola" cols="30" rows="5"></textarea>
         </div>
-        <!-- radio -->
+        <!-- desplazamiento -->
         <div>
-            Seleccione el tipo de cifrado:<br>
-          <input type="radio" id="rabCesar" name="radio" value="cesar" checked>
-          <label for="rabCesar">César</label>
-          <input type="radio" id="rabVigge" name="radio" value="vigge">
-          <label for="rabVigge">Viggenere</label>
-        </div>
-        <!-- desplazamiento o llave -->
-        <div>
-            Ingresa un número o una llave:
+            Ingresa un n&#250mero:
             <div id="msjCesar"></div>
             <!-- desplazamiento -->
             <input type="number" placeholder="cifrado César (1-26)" id="desp" value="3" min="1" max="26">
-            <!-- llave -->
-            <input type="text" placeholder="LLave (tiene que ser menor al mensaje)" id="llave" name="llave" value="perro">
+        </div>
+        <!-- cifrar o descifrar -->
+        <div>
+            <input type="button" value="Cifrar" onclick="cifrar()" >
+            <input type="button" value="Descifrar" onclick="descifrar()" >
+        </div>
+        <!-- resultado -->
+        <div id="resultado" ></div>
+    </section>
+
+    <section class="viggenere">
+        <h3>Cifrado Viggenere</h3>
+        <!-- texto -->
+        <div>
+            Ingresa lo que quieras cifrar: <br>
+            <textarea id="mess" placeholder="hola" cols="30" rows="5"></textarea>
+        </div>
+        <!-- llave -->
+        <div>
+            Ingresa una llave: <br>
+            <input type="text" placeholder="LLave (tiene que ser menor al mensaje)" id="llave" name="llave" value="uva">
         </div>
         <!-- cifrar o descifrar -->
         <div>
             <input type="button" value="Cifrar" id="ci" name="ci">
             <input type="button" value="Descifrar" id="de" name="de">
         </div>
-        <!-- rs -->
+        <!-- resultado -->
         <div id="rs" ></div>
     </section>
 
     <!-- js -->
-    <!-- <script src="js/cifrados/cesar.js" >    </script> -->
+    <script src="js/cifrados/cesar.js" >    </script>
     <script src="js/cifrados/viggenere.js"> </script>
-    <script src="js/cifrados/check.js">     </script>
+    <!-- <script src="js/cifrados/check.js">     </script> -->
 </body>
 </html>

@@ -66,38 +66,33 @@ var cesar = cesar || (function(){
 
 
 function cifrar(){
-    console.log('ejecuta cifrar')
-    if (document.querySelector("input:radio[id=rabCesar]").checked) {
-        console.log("Cifrando con César")
-        if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
-            document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
-            event.preventDefault();
-        }if(parseInt(document.getElementById('desp').value) > 26){
-            document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
-            event.preventDefault();
-        }if(document.getElementById("cadena").value.length > 20){
-            document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menor a 20 letras.`;
-            event.preventDefault();
-        }else{
-            document.getElementById("rs").innerHTML =
-            cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
-        }
+    console.log("cifrando con César")
+    if(document.getElementById('desp').length == 0 || paresultadoeInt(document.getElementById('desp').value) == 0) {
+        document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
+        event.preventDefault();
+    }if(paresultadoeInt(document.getElementById('desp').value) > 26){
+        document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
+        event.preventDefault();
+    }if(document.getElementById("cadena").value.length > 20){
+        document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menor a 20 letras.`;
+        event.preventDefault();
     }else{
-        console.log('César no está cifrando')
+        document.getElementById("resultado").innerHTML =
+        cesar.encode(document.getElementById("cadena").value, paresultadoeInt(document.getElementById("desp").value));
     }
 }
 
 //funcion de descifrado
 
 function descifrar(){
-    if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
+    if(document.getElementById('desp').length == 0 || paresultadoeInt(document.getElementById('desp').value) == 0) {
         event.preventDefault();
-    }if(parseInt(document.getElementById('desp').value) > 26){
+    }if(paresultadoeInt(document.getElementById('desp').value) > 26){
         event.preventDefault();
     }if(document.getElementById("cadena").value.length > 20){
         event.preventDefault();
     }else{
-    document.getElementById("rs").innerHTML =
+    document.getElementById("resultado").innerHTML =
     cesar.decode(document.getElementById("cadena").value, 0);
     }
 }
