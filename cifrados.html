@@ -14,18 +14,18 @@
     <title>Cifrados</title>
 </head>
 <body>
-    <section class="cirados">
+    <section class="cifrados">
         <!-- texto -->
         <div>
             Ingrese lo que desea cifrar: <br>
-            <textarea id="cadena" cols="30" rows="5"></textarea>
+            <textarea id="cadena" placeholder="hola" cols="30" rows="5"></textarea>
         </div>
         <!-- radio -->
         <div>
             Seleccione el tipo de cifrado:<br>
-          <input type="radio" id="rabCesar" name="radio" checked>
+          <input type="radio" id="rabCesar" name="radio" value="cesar" checked>
           <label for="rabCesar">César</label>
-          <input type="radio" id="rabVigge" name="radio">
+          <input type="radio" id="rabVigge" name="radio" value="vigge">
           <label for="rabVigge">Viggenere</label>
         </div>
         <!-- desplazamiento o llave -->
@@ -35,20 +35,20 @@
             <!-- desplazamiento -->
             <input type="number" placeholder="cifrado César (1-26)" id="desp" value="3" min="1" max="26">
             <!-- llave -->
-            <input type="text" placeholder="LLave (tiene que ser menor al mensaje)" id="llave" value="perro">
+            <input type="text" placeholder="LLave (tiene que ser menor al mensaje)" id="llave" name="llave" value="perro">
         </div>
         <!-- cifrar o descifrar -->
         <div>
-            <input type="button" value="Cifrar" id="ci" onclick="cifrar();" >
-            <input type="button" value="Descifrar" id="de" onclick="descifrar();" >
+            <input type="button" value="Cifrar" id="ci" name="ci">
+            <input type="button" value="Descifrar" id="de" name="de">
         </div>
         <!-- rs -->
         <div id="rs" ></div>
     </section>
 
     <!-- js -->
-    <script src="js/cifrados/cesar.js" >    </script>
+    <!-- <script src="js/cifrados/cesar.js" >    </script> -->
     <script src="js/cifrados/viggenere.js"> </script>
-    <script src="js/cifrados/checked.js">   </script>
+    <script src="js/cifrados/check.js">     </script>
 </body>
 </html>

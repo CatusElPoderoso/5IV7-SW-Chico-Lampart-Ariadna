@@ -1,7 +1,9 @@
 /*
 Vamos a realizar el algoritmo para el cifrado simetrico de viggenere
 */
-
+module.exports = function(){
+    
+};
 
 const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
@@ -12,6 +14,8 @@ let key = "";
 
 
 $(document).ready(function(){
+    if(document.querySelectorAll('input:radio[id="rabVigge"]').checked){
+    console.log('cifrando con Viggenere')
     $('#ci').click(function(){
 
         //para cifrar vamos a usar la funcion
@@ -113,7 +117,7 @@ $(document).ready(function(){
 
     });
 
-});
+}});
 
 //cambio
 

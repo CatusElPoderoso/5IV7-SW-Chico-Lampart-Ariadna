@@ -66,7 +66,8 @@ var cesar = cesar || (function(){
 
 
 function cifrar(){
-    if (document.querySelector("input[id='rabCesar']:checked").value) {
+    console.log('ejecuta cifrar')
+    if (document.querySelector("input:radio[id=rabCesar]").checked) {
         console.log("Cifrando con César")
         if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
             document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
