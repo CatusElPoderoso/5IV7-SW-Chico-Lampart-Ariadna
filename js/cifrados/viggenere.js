@@ -10,11 +10,10 @@ const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 //llave
 let key = "";
 
-function ciViggenere(){
-    console.log("sí empieza a leer y luego se hace wey");
-    if(document.querySelector("input[id='rabVigge']:checked").value){
-    document.querySelector('#ci').click(function(){
-        console.log('andoleyendo')
+
+$(document).ready(function(){
+    $('#ci').click(function(){
+
         //para cifrar vamos a usar la funcion
         // y = (x+z)mod27 pq estamos usando la ñ
 
@@ -55,7 +54,7 @@ function ciViggenere(){
 
                 newcadena += abc[newVal];  //mensaje cifrado
             }
-            //imprimir el rs
+            //imprimir el resultado
             document.getElementById('rs').value = newcadena;
         }else{
             //aqui es si no se cumple las condiciones
@@ -63,7 +62,7 @@ function ciViggenere(){
 
 
     });
-    document.querySelector('#de').click(function(){
+    $('#de').click(function(){
 
         //para cifrar vamos a usar la funcion
         // y = (x+z)mod27 pq estamos usando la ñ
@@ -105,7 +104,7 @@ function ciViggenere(){
 
                 newcadena += abc[newVal];  //mensaje decifrado
             }
-            //imprimir el rs
+            //imprimir el resultado
             document.getElementById('rs').value = newcadena;
         }else{
             //aqui es si no se cumple las condiciones
@@ -114,7 +113,7 @@ function ciViggenere(){
 
     });
 
-}};
+});
 
 //cambio
 
