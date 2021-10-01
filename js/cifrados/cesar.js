@@ -65,10 +65,7 @@ var cesar = cesar || (function(){
 //funcion de cifrado
 
 
-function cifrar(){    
-    let boC = document.getElementById('cifCesar');
-    boC.addEventListener('click',vCesar);
-    function vCesar(){
+function cifrar(){
     if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
         document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
         event.preventDefault();
@@ -81,15 +78,12 @@ function cifrar(){
     }else{
         document.getElementById("resultado").innerHTML =
         cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
-    }}
+    }
 }
 
 //funcion de descifrado
 
 function descifrar(){
-    let boC = document.getElementById('cifCesar');
-    boC.addEventListener('click',vCesar);
-    function vCesar(){
     if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
         event.preventDefault();
     }if(parseInt(document.getElementById('desp').value) > 26){
@@ -99,5 +93,5 @@ function descifrar(){
     }else{
     document.getElementById("resultado").innerHTML =
     cesar.decode(document.getElementById("cadena").value, 0);
-    }}
+    }
 }
