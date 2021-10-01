@@ -1,3 +1,4 @@
+
 var cesar = cesar || (function(){
     var proceso = function(txt, desp, action){
         var replace = (function(){
@@ -64,29 +65,39 @@ var cesar = cesar || (function(){
 //funcion de cifrado
 
 
-function cifrar(){
-    var boC = document.getElementById('cifCesar');
+function cifrar(){    
+    let boC = document.getElementById('cifCesar');
     boC.addEventListener('click',vCesar);
     function vCesar(){
-    if(document.getElementById('desp').value.lenght == 0 || document.getElementById('desp').value == 0) {
+    if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
         document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
         event.preventDefault();
-    }if(document.getElementById('desp').value > 26){
+    }if(parseInt(document.getElementById('desp').value) > 26){
         document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
         event.preventDefault();
-    }if(document.getElementById("cadena").value.lenght > 20){
-        document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menos a 20 letras.`;
+    }if(document.getElementById("cadena").value.length > 20){
+        document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menor a 20 letras.`;
         event.preventDefault();
     }else{
-        console.log(document.getElementById("cadena").value, document.getElementById("desp").value);
         document.getElementById("resultado").innerHTML =
-        cesar.encode(document.getElementById("cadena").value, document.getElementById("desp").value);
+        cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
     }}
 }
 
 //funcion de descifrado
 
 function descifrar(){
+    let boC = document.getElementById('cifCesar');
+    boC.addEventListener('click',vCesar);
+    function vCesar(){
+    if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
+        event.preventDefault();
+    }if(parseInt(document.getElementById('desp').value) > 26){
+        event.preventDefault();
+    }if(document.getElementById("cadena").value.length > 20){
+        event.preventDefault();
+    }else{
     document.getElementById("resultado").innerHTML =
     cesar.decode(document.getElementById("cadena").value, 0);
+    }}
 }
