@@ -66,18 +66,23 @@ var cesar = cesar || (function(){
 
 
 function cifrar(){
-    if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
-        document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
-        event.preventDefault();
-    }if(parseInt(document.getElementById('desp').value) > 26){
-        document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
-        event.preventDefault();
-    }if(document.getElementById("cadena").value.length > 20){
-        document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menor a 20 letras.`;
-        event.preventDefault();
+    if (document.querySelector("input[id='rabCesar']:checked").value) {
+        console.log("Cifrando con César")
+        if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
+            document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
+            event.preventDefault();
+        }if(parseInt(document.getElementById('desp').value) > 26){
+            document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
+            event.preventDefault();
+        }if(document.getElementById("cadena").value.length > 20){
+            document.getElementById("msjCesar").innerHTML = `Tu mensaje es demasiado largo. Ingresa uno menor a 20 letras.`;
+            event.preventDefault();
+        }else{
+            document.getElementById("resultado").innerHTML =
+            cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
+        }
     }else{
-        document.getElementById("resultado").innerHTML =
-        cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
+        console.log('César no está cifrando')
     }
 }
 

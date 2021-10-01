@@ -9,35 +9,27 @@
 </head>
 <body>
     <section class="cesar">
-        <p>
-            Este es un ejemplo para poder cifrar un texto con el algoritmo de césar.
-            P.D. tengo sueñito
-        
-            Tarea:
-        
-            Voy a querer que no sea constante el desplazamiento y que lo pueda ingresar
-            adentro de un campo de texto, deberan de aplicar la operacion modulo
-            si me paso de 27 letras
-        
-            desp  mod 27 
-        
-            porque van a agregar la ñ
-        </p>
         <!-- texto -->
-        <textarea id="cadena" cols="30" rows="10"></textarea>
-        <br>
+        <div>
+            Ingrese lo que desea cifrar: <br>
+            <textarea id="cadena" cols="30" rows="5"></textarea>
+        </div>
         <!-- radio -->
         <div>
-            Selecciona el tipo de cifrado que deseas aplicar:<br>
-          <input type="radio" id="huey" name="drone" value="huey" checked>
-          <label for="huey">César</label>
-          <input type="radio" id="dewey" name="drone" value="dewey">
-          <label for="dewey">Viggenere</label>
+            Seleccione el tipo de cifrado:<br>
+          <input type="radio" id="rabCesar" name="radio" checked>
+          <label for="rabCesar">César</label>
+          <input type="radio" id="rabVigge" name="radio">
+          <label for="rabVigge">Viggenere</label>
         </div>
         <!-- desplazamiento o llave -->
         <div>
+            Ingresa un número o una llave:
             <div id="msjCesar"></div>
-            <input type="number" placeholder="1-26" id="desp" min="1" max="26">
+            <!-- desplazamiento -->
+            <input type="number" placeholder="cifrado César (1-26)" id="desp" value="3" min="1" max="26">
+            <!-- llave -->
+            <input type="text" placeholder="LLave (tiene que ser menor al mensaje)" id="llave" value="perro">
         </div>
         <!-- cifrar o descifrar -->
         <div>
@@ -46,23 +38,6 @@
         </div>
         <!-- resultado -->
         <div id="resultado" ></div>
-    </section>
-
-    <section class="viggenere">
-        <p>
-            La tarea va a ser:
-
-            Deberan de montar este cifrado simetrico junto con el cifrado de cesar
-            que se habia desarrollado con anterioridad, y debo de poder elegir
-            que cifrado es el que deseo y me direcciona al formulario correspondiente.
-        
-            (radiobutton para la eleccion del cifrado)
-        
-            La css es como ustedes quieran :3
-        
-            Obvi debe de estar deployado en github pages o heroku, entonces solo deben de entregar
-            la url del sitio donde este hospedado el proyecto.
-        </p>
     </section>
 
     <!-- js -->
