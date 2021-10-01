@@ -67,10 +67,10 @@ var cesar = cesar || (function(){
 
 function cifrar(){
     console.log("cifrando con César")
-    if(document.getElementById('desp').length == 0 || paresultadoeInt(document.getElementById('desp').value) == 0) {
+    if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
         document.getElementById("msjCesar").innerHTML = `Ingresa un valor.`;
         event.preventDefault();
-    }if(paresultadoeInt(document.getElementById('desp').value) > 26){
+    }if(parseInt(document.getElementById('desp').value) > 26){
         document.getElementById("msjCesar").innerHTML = `Para el cifrado César solo puedes ingresar números entre 1 y 26.`;
         event.preventDefault();
     }if(document.getElementById("cadena").value.length > 20){
@@ -78,16 +78,16 @@ function cifrar(){
         event.preventDefault();
     }else{
         document.getElementById("resultado").innerHTML =
-        cesar.encode(document.getElementById("cadena").value, paresultadoeInt(document.getElementById("desp").value));
+        cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("desp").value));
     }
 }
 
 //funcion de descifrado
 
 function descifrar(){
-    if(document.getElementById('desp').length == 0 || paresultadoeInt(document.getElementById('desp').value) == 0) {
+    if(document.getElementById('desp').length == 0 || parseInt(document.getElementById('desp').value) == 0) {
         event.preventDefault();
-    }if(paresultadoeInt(document.getElementById('desp').value) > 26){
+    }if(parseInt(document.getElementById('desp').value) > 26){
         event.preventDefault();
     }if(document.getElementById("cadena").value.length > 20){
         event.preventDefault();
