@@ -10,28 +10,27 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">  
-    <!-- title -->
-    <title>Cifrados</title>
 </head>
 <body>
+    <center><h1>Cifrados</h1></center>
     <section class="cesar">
         <h3>Cifrado César</h3>
         <!-- texto -->
         <div>
             Ingresa lo que quieras cifrar: <br>
-            <textarea id="cadena" placeholder="hola" cols="30" rows="5"></textarea>
+            <textarea class="outline" id="cadena" placeholder="hola" cols="35" rows="4"></textarea>
         </div>
         <!-- desplazamiento -->
         <div>
             Ingresa un n&#250mero:
             <div id="msjCesar"></div>
             <!-- desplazamiento -->
-            <input type="number" placeholder="cifrado César (1-26)" id="desp" value="3" min="1" max="26">
+            <input class="outline" type="number" placeholder="1-26" id="desp" value="3" min="1" max="26">
         </div>
         <!-- cifrar o descifrar -->
-        <div>
-            <input type="button" value="Cifrar" onclick="cifrar()" >
-            <input type="button" value="Descifrar" onclick="descifrar()" >
+        <div class="buttons">
+            <input class="outline" type="button" value="Cifrar" onclick="cifrar()" >
+            <input class="outline" type="button" value="Descifrar" onclick="descifrar()" >
         </div>
         <!-- resultado -->
         <div id="resultado" ></div>
@@ -42,17 +41,17 @@
         <!-- texto -->
         <div>
             Ingresa lo que quieras cifrar: <br>
-            <textarea id="mess" placeholder="hola" cols="30" rows="5"></textarea>
+            <textarea class="outline" id="mess" placeholder="hola" cols="35" rows="4"></textarea>
         </div>
         <!-- llave -->
         <div>
             Ingresa una llave: <br>
-            <input type="text" placeholder="LLave (tiene que ser menor al mensaje)" id="llave" name="llave" value="uva">
+            <input class="outline" type="text" placeholder="llave" id="llave" name="llave" value="uva">
         </div>
         <!-- cifrar o descifrar -->
-        <div>
-            <input type="button" value="Cifrar" id="ci" name="ci">
-            <input type="button" value="Descifrar" id="de" name="de">
+        <div class="buttons">
+            <input class="outline" type="button" value="Cifrar" id="ci" name="ci">
+            <input class="outline" type="button" value="Descifrar" id="de" name="de">
         </div>
         <!-- resultado -->
         <div id="rs" ></div>
