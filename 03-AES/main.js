@@ -8,35 +8,24 @@ const bodyparser = require('body-parser');
 const cifrador = require( './js/cifrador' );
 const generarArchivo = require( './js/archivo' );
 
-
-// app
+// servidor
 const port = '3000';
 const host = 'localhost';
 const app = express();
 
-
-// setings
+// app setings
 app.use( express.static( 'html' ) );
 app.use( bodyparser.urlencoded({ extended: true }) )
-
 
 // get /
 app.get( '/', ( req, res ) => {
     res.sendFile( __dirname + '/html/index.html' );
 });
 
-/* 
-// get /cifrador
-app.get( '/cifrador', ( req, res ) => {
-    res.sendFile( __dirname + '/html/cifrador.html' )
-}); */
-
-
-// get *
+// get * - Para cualquier otro caso
 app.get( '*', ( req, res ) => {
     res.sendFile( __dirname + '/html/404.html' )
 });
-
 
 // post /descargar
 app.post( '/descargar', ( req, res ) => {
@@ -55,8 +44,7 @@ app.post( '/descargar', ( req, res ) => {
         
 });
 
-
 // listen
 app.listen( port, () => {
-    console.log( `http://${host}:${port}` );
+    console.log( `El servidor se está ejecutando en http://${host}:${port}` );
 });
