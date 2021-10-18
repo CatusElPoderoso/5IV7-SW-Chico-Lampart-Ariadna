@@ -1,4 +1,3 @@
-
 // imports
 require('dotenv').config();
 const express = require('express');
@@ -30,7 +29,7 @@ app.get('*', (req, res) => {
 // /descargar
 app.post('/descargar', (req, res) => {
     const datos = req.body;
-    const data = cifrador(datos.accion, datos.texto, datos.llave);
+    const data = cifrador( datos.accion, datos.texto, datos.llave );
     generarArchivo(datos.accion, data);
         if(datos.accion == 'cifrar'){
             res.download( '../archivo.txt.cifrado' );
