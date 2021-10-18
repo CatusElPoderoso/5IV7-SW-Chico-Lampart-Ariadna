@@ -1,11 +1,9 @@
 
 // imports
 const colors = require('colors');
-const fs = require( 'fs' );
+const fs = require('fs');
 
-
-const archivo = (accion, data ) => {
-
+const archivo = (accion, data) => {
     const path = '../archivo.txt';
     console.log('\n',`${data.green}`,'\n');
     if(accion == 'cifrar'){
@@ -15,7 +13,6 @@ const archivo = (accion, data ) => {
     }else{
         console.log('xd')
     }
-
 };
 
 // exports
