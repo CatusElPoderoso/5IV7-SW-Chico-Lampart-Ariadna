@@ -116,5 +116,8 @@ public class RSA {
         return (new String(charArray));
     }
 
+    public static void main(String[] args){
+        RSA Texto = new RSA(4);
+    }
     
 }

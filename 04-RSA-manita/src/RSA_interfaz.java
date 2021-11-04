@@ -30,9 +30,10 @@ public class RSA_interfaz extends javax.swing.JFrame {
      *  mis variables
      */ 
     
-    String mensaje;
+    RSA RSA;
+    String mensaje, descifrado;
     int tamprimo; //2, 3, 4 etc
-    BigInteger[] cifrado, descifrado;
+    BigInteger[] cifrado;
     BigInteger p, q, n;
     BigInteger fi;
     BigInteger e, d;
@@ -118,7 +119,7 @@ public class RSA_interfaz extends javax.swing.JFrame {
     // metodo para descifrar con la llave privada
     public String descifrar(BigInteger[] cifrado){
         
-        descifrado = new BigInteger[cifrado.length];
+        BigInteger[] descifrado = new BigInteger[cifrado.length];
         
         //vamos a descifrar con la formula
         // Md = C ^d mod n
@@ -290,44 +291,29 @@ public class RSA_interfaz extends javax.swing.JFrame {
         // salto de línea
         System.out.println("\n");
         
+        // valores del tamaño del primo y del mensaje
         tamprimo = this.sldDigitos.getValue();
-        // this.lblMensaje.setText("tamaño del primo: " + Integer.toString(tamprimo)); // se muestra el valor del slide
-        
-        // generamos los números primos
-        System.out.println("1. Generamos los números primos");
-        generarPrimos();
-        
-        // generamos las claves
-        System.out.println("2. Generamos las claves");
-        generarClaves();
-        
-        // tomamos el texto a cifrar
         mensaje = this.txtMensaje.getText();
-            System.out.println("   >>>>>>>> Texto a cifrar: " + mensaje);
-            this.lblMensaje.setText(mensaje);
+            System.out.println("Texto a cifrar: " + mensaje);
         
+        // generamos los primos y las claves
+        RSA = new RSA(4);
+        RSA.generarPrimos();
+        RSA.generarClaves();
         
         // ciframos con la llave pública
-        System.out.println("3. Ciframos con la llave pública");
-            System.out.println("   >>>>>>>> Cifrado: " + cifrar(mensaje));
-            System.out.println("   >>>>>>>> Cifrado (toString): " + Arrays.toString(cifrar(mensaje)));
-            
-        // desciframos con la llave privada
-        System.out.println("4. Descriframos con la llave privada");
-            System.out.println("   >>>>>>>> Descifrado (char): " + descifrar(cifrado));
-            System.out.println("   >>>>>>>> Descifrado BI: " + descifrado);
-            System.out.println("   >>>>>>>> Descifrado BI (toString): " + Arrays.toString(descifrado));
-            this.txtResultado.setText(descifrar(cifrado));
+        cifrado = RSA.cifrar(mensaje);
+            System.out.println("Cifrado: " + cifrado);
         
+        
+
     }//GEN-LAST:event_bttCifrarActionPerformed
 
     private void bttDescifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDescifrarActionPerformed
         // desciframos con la llave privada
-        System.out.println("4. Descriframos con la llave privada");
-            System.out.println("   >>>>>>>> Descifrado char: " + descifrar(cifrado));
-            System.out.println("   >>>>>>>> Descifrado BI: " + descifrado);
-            System.out.println("   >>>>>>>> Descifrado BI (toString): " + Arrays.toString(descifrado));
-            this.txtResultado.setText(descifrar(cifrado));
+        descifrado = RSA.descifrar(cifrado);
+            System.out.println("Descrifrado: " + descifrado);
+            this.txtResultado.setText(descifrado);
     }//GEN-LAST:event_bttDescifrarActionPerformed
 
     // main
