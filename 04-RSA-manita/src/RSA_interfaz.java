@@ -118,7 +118,6 @@ public class RSA_interfaz extends javax.swing.JFrame {
     // metodo para descifrar con la llave privada
     public String descifrar(BigInteger[] cifrado){
         
-        System.out.println("Texto cifrado dentro de descifrar: " + cifrado);
         descifrado = new BigInteger[cifrado.length];
         
         //vamos a descifrar con la formula
@@ -134,13 +133,13 @@ public class RSA_interfaz extends javax.swing.JFrame {
             charArray[j] = (char)(descifrado[j].intValue());
         }
         
-        System.out.println("Descifrado: " + descifrado);
+        System.out.println("   >>>>>>>> Descifrado (BI): " + descifrado);
         return (new String(charArray));
     }
     
     // mensaje de ayuda
     public static void mensajeAyuda() {
-        System.out.println("El archivo está vacío");
+        System.out.println("No funciona esta madre we");
     }
     
     // mostrar bytes (?
@@ -241,6 +240,11 @@ public class RSA_interfaz extends javax.swing.JFrame {
         getContentPane().add(bttCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
 
         bttDescifrar.setText("Descifrar");
+        bttDescifrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttDescifrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(bttDescifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
 
         txtMensaje.setColumns(20);
@@ -257,8 +261,9 @@ public class RSA_interfaz extends javax.swing.JFrame {
         txtResultado.setEditable(false);
         txtResultado.setColumns(20);
         txtResultado.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        txtResultado.setForeground(new java.awt.Color(102, 102, 102));
         txtResultado.setRows(5);
-        txtResultado.setText("Resultado");
+        txtResultado.setText("Resultado...");
         txtResultado.setWrapStyleWord(true);
         txtResultado.setSelectedTextColor(new java.awt.Color(153, 153, 255));
         txtResultado.setSelectionColor(new java.awt.Color(255, 153, 51));
@@ -305,16 +310,22 @@ public class RSA_interfaz extends javax.swing.JFrame {
         
         // ciframos con la llave pública
         System.out.println("3. Ciframos con la llave pública");
-        System.out.println(cifrar(mensaje));
-
-        // 
-        
+            System.out.println("   >>>>>>>> Cifrado: " + cifrar(mensaje));
+            
+            
         // desciframos con la llave privada
         System.out.println("4. Descriframos con la llave privada");
-        System.out.println(descifrar(cifrado));
-        
+            System.out.println("   >>>>>>>> Descifrado (char): " + descifrar(cifrado));
+            this.txtResultado.setText(descifrar(cifrado));
         
     }//GEN-LAST:event_bttCifrarActionPerformed
+
+    private void bttDescifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDescifrarActionPerformed
+        // desciframos con la llave privada
+        System.out.println("4. Descriframos con la llave privada");
+            System.out.println("   >>>>>>>> Descifrado (char): " + descifrar(cifrado));
+            this.txtResultado.setText(descifrar(cifrado));
+    }//GEN-LAST:event_bttDescifrarActionPerformed
 
     // main
     public static void main(String args[]) {
