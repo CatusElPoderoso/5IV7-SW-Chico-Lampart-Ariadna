@@ -142,12 +142,6 @@ public class RSA_interfaz extends javax.swing.JFrame {
         System.out.println("No funciona esta madre we");
     }
     
-    // mostrar bytes (?
-    public static void mostrarBytes(byte[] buffer) {
-        System.out.write(buffer, 0, buffer.length);
-    }
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -303,17 +297,20 @@ public class RSA_interfaz extends javax.swing.JFrame {
         
         // ciframos con la llave pública
         cifrado = RSA.cifrar(mensaje);
+        
             System.out.println("Cifrado: " + cifrado);
-        
-        
-
+            System.out.println("Cifrado (toString): " + Arrays.toString(cifrado));
+            this.txtResultado.setText(Arrays.toString(cifrado));
+            
     }//GEN-LAST:event_bttCifrarActionPerformed
 
     private void bttDescifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDescifrarActionPerformed
+        
         // desciframos con la llave privada
         descifrado = RSA.descifrar(cifrado);
             System.out.println("Descrifrado: " + descifrado);
             this.txtResultado.setText(descifrado);
+            
     }//GEN-LAST:event_bttDescifrarActionPerformed
 
     // main
