@@ -133,7 +133,6 @@ public class RSA_interfaz extends javax.swing.JFrame {
             charArray[j] = (char)(descifrado[j].intValue());
         }
         
-        System.out.println("   >>>>>>>> Descifrado (BI): " + descifrado);
         return (new String(charArray));
     }
     
@@ -311,11 +310,13 @@ public class RSA_interfaz extends javax.swing.JFrame {
         // ciframos con la llave pública
         System.out.println("3. Ciframos con la llave pública");
             System.out.println("   >>>>>>>> Cifrado: " + cifrar(mensaje));
-            
+            System.out.println("   >>>>>>>> Cifrado (toString): " + Arrays.toString(cifrar(mensaje)));
             
         // desciframos con la llave privada
         System.out.println("4. Descriframos con la llave privada");
             System.out.println("   >>>>>>>> Descifrado (char): " + descifrar(cifrado));
+            System.out.println("   >>>>>>>> Descifrado BI: " + descifrado);
+            System.out.println("   >>>>>>>> Descifrado BI (toString): " + Arrays.toString(descifrado));
             this.txtResultado.setText(descifrar(cifrado));
         
     }//GEN-LAST:event_bttCifrarActionPerformed
@@ -323,7 +324,9 @@ public class RSA_interfaz extends javax.swing.JFrame {
     private void bttDescifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDescifrarActionPerformed
         // desciframos con la llave privada
         System.out.println("4. Descriframos con la llave privada");
-            System.out.println("   >>>>>>>> Descifrado (char): " + descifrar(cifrado));
+            System.out.println("   >>>>>>>> Descifrado char: " + descifrar(cifrado));
+            System.out.println("   >>>>>>>> Descifrado BI: " + descifrado);
+            System.out.println("   >>>>>>>> Descifrado BI (toString): " + Arrays.toString(descifrado));
             this.txtResultado.setText(descifrar(cifrado));
     }//GEN-LAST:event_bttDescifrarActionPerformed
 
