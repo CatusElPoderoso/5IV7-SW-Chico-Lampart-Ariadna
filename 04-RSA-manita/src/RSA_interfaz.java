@@ -2,7 +2,6 @@
 import java.io.*;
 import java.util.*;
 import java.math.BigInteger;
-import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,18 +37,29 @@ public class RSA_interfaz extends javax.swing.JFrame {
     BigInteger fi;
     BigInteger e, d;
     
-    
-    
     /**
-     *  mis métodos
+     *  RSA
      */ 
     
-    // constructor del tamaño del primo
-    public RSA_interfaz (int tamprimo){
+    public class RSA {
+    
+    /*
+    Vamos a definir nuestros numeros grandototes
+    */
+    
+    int tamprimo; //2, 3, 4 etc
+    BigInteger p, q, n;
+    BigInteger fi;
+    BigInteger e, d;
+    
+    
+    //constructor de RSA
+    
+    public RSA(int tamprimo){
         this.tamprimo = tamprimo;
     }
     
-    // metodo para generar los numeros primos
+    //metodo para generar los numeros primos
     public void generarPrimos(){
     
         p = new BigInteger(tamprimo, 10, new Random());
@@ -59,7 +69,8 @@ public class RSA_interfaz extends javax.swing.JFrame {
     
     }
     
-    // metodo para generar las claves
+    //generar la claves
+    
     public void generarClaves(){
         /*
         Recordar que n = p*q
@@ -86,37 +97,40 @@ public class RSA_interfaz extends javax.swing.JFrame {
         //calcular a d = e ^ 1 mod fi   inverso multiplicativo de e
         
         d = e.modInverse(fi);
+    
         
     }
     
-    // metodo para cifrar con la llave pública
-    public BigInteger[] cifrar(String mensaje){
+    //criframos con la clave publica
+    // e n
     
+    public BigInteger[] cifrar(String mensaje){
+        
         int i;
         byte[] temp = new byte[1];
         byte[] digitos = mensaje.getBytes();
         
         BigInteger[] bigdigitos = new BigInteger[digitos.length];
         
-        //vamos a iterar esos digitos grandotes
-        
         for(i = 0; i < bigdigitos.length; i++){
             temp[0] = digitos[i];
             bigdigitos[i] = new BigInteger(temp);
         }
         
-        // C=M^e mod(n)
-        
-        cifrado = new BigInteger[bigdigitos.length];
+        BigInteger[] cifrado = new BigInteger[bigdigitos.length];
         
         for(i = 0; i < bigdigitos.length; i++){
+            //formula
+            // c = M ^ e mod n
             cifrado[i] = bigdigitos[i].modPow(e, n);
         }
         
         return cifrado;
     }
     
-    // metodo para descifrar con la llave privada
+    //desciframos con clave privada
+    // d n
+    
     public String descifrar(BigInteger[] cifrado){
         
         BigInteger[] descifrado = new BigInteger[cifrado.length];
@@ -137,12 +151,8 @@ public class RSA_interfaz extends javax.swing.JFrame {
         return (new String(charArray));
     }
     
-    // mensaje de ayuda
-    public static void mensajeAyuda() {
-        System.out.println("No funciona esta madre we");
-    }
-    
-    
+}
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -281,7 +291,7 @@ public class RSA_interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_barra01ActionPerformed
 
     private void bttCifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCifrarActionPerformed
-      
+
         // salto de línea
         System.out.println("\n");
         
@@ -297,7 +307,6 @@ public class RSA_interfaz extends javax.swing.JFrame {
         
         // ciframos con la llave pública
         cifrado = RSA.cifrar(mensaje);
-        
             System.out.println("Cifrado: " + cifrado);
             System.out.println("Cifrado (toString): " + Arrays.toString(cifrado));
             this.txtResultado.setText(Arrays.toString(cifrado));
